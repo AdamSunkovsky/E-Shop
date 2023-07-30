@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "_Admin";
+}
+<br />
+<br />
+<br />
+<br />
+@model StockModel_BetterView
+<form class="TableCSTM_Header">
+                <input style="background: none; border: none"  value="ID" readonly>
+                <input style="background: none; border: none"  value="Name" readonly>
+                <input style="background: none; border: none;"  value="Variant Color:" readonly>
+                <input style="background: none; border: none"  value="Size:" readonly>
+                <input style="background: none; border: none"  value="InStock:" readonly>
+</form>
+<div style="width:100%; display: flex; flex-direction: column; gap: 5%">
+    @foreach (StockModel_BetterView WH in ViewBag.Stock)
+    {
+        <form asp-action="UpdateStock" class="TableCSTM">        
+                <input style="background: none; border: none" asp-for="WarehouseId" value=@WH.WarehouseId readonly>
+                <input style="background: none; border: none" asp-for="ShoeName" value=@WH.ShoeName readonly>
+                <input style="background: none; border: none; color:@WH.Color" asp-for="Color" value=@WH.Color readonly>
+                <input style="background: none; border: none" asp-for="Size" value=@WH.Size readonly>
+                <input style="background: none" asp-for="Stock" value=@WH.Stock>
+                <button class="btn btn-outline-dark" type="submit">Update Stock</button>                
+         </form>
+    }
+</div>

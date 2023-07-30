@@ -1,0 +1,267 @@
+﻿@model ProductInBasket
+<div class="Header2">
+    <a asp-area="" asp-controller="Home" asp-action="Index">
+        <div>
+
+            <img src="~/img/Group%204.png">
+
+        </div>
+    </a>
+    <div class="Midd"></div>
+    <div class="Form">
+        <a asp-action="Index" asp-controller="Catalog"><img class="Ic" src="~/img/loupe.svg"></a>
+        <a asp-action="Index" asp-controller="Basket"><img class="Ic" src="~/img/cart.svg"></a>
+        <a href=""> <img class="Ic" src="~/img/heart.png">  </a>
+    </div>
+</div>
+
+<div style="width: 100%; margin-top: 5%">
+<div style="display: flex; flex-direction: row; gap: 5%;">
+    <div style="flex:1">
+        <div class="MainImg">
+            <img src=@ViewBag.MainIMG>
+        </div><br><br /><br />
+        <div class="OtherImgs">
+                @{
+                    int counter = 0;
+                }
+                @foreach (Image item in ViewBag.Images)
+                {
+                    if(counter == 3)
+                    {
+                        break;
+                    }
+                    counter++;
+                    <img src=@item.ImgURL>
+                }
+        </div>
+        </div>
+         <div style="flex: 1; flex-direction: column">
+        <h1>@ViewBag.ParentProduct.ShoeName</h1>
+        <hr /><br />
+            <p>@ViewBag.ParentProduct.Description</p>
+        <br><br><hr>
+            <form asp-action="ProductADD" >
+        <div class="Opt">
+            <div class="Colors">
+                <h3 class="h3">Barva</h3>
+                <div class="ColorSelect">     
+                        @foreach (ProductDetail item in this.ViewBag.AllDetails){
+                            <a asp-controller="ProductDetail" asp-action="Index" asp-route-ParentProductID=@ViewBag.ParentProduct.ProductID asp-route-DetailID=@item.ProductDetailID>
+                                        @if(item.ProductDetailID == this.ViewBag.CurrentDetail.ProductDetailID)
+                                            {
+                                        <div style="width: 40px; height: 40px; border-radius: 5%; background-color: @item.ColorCode;  box-shadow: 2px 2px grey;">
+                                            </div>
+                                            } else {
+                                        <div style="width: 25px; height: 25px; border-radius: 50%; background-color: @item.ColorCode;    box-shadow: 2px 2px grey;">
+                                            </div>
+                                                    }
+                            </a>
+                        }                
+                </div>
+            </div>
+            <div class="Size">
+                <div>    <h3 class="h3">Velikost</h3></div>
+                <div class="Sc">
+                        @foreach (var item in this.ViewBag.Sizes)
+                        {
+                               
+                            if(!this.ViewBag.Empty.Contains(item))
+                            {
+                                    if ((string)item == this.ViewBag.StringSize)
+                                {
+                                       <div>
+                                   <a asp-controller="ProductDetail"
+                                    asp-action="Index" asp-route-ParentProductID=@ViewBag.ParentProduct.ProductID
+                                   asp-route-DetailID=@ViewBag.CurrentDetail.ProductDetailID
+                                    asp-route-ShoeSize=@item
+                                   class="SizeSelect">
+                                                <p style="font-weight: bolder; text-decoration: none; color: #c7232f;" class="Label" for=@item>
+                                              @item                                         
+                                            </p>
+                                    </a>
+                            </div>
+                                } else {
+                                       <div>
+                                   <a asp-controller="ProductDetail"
+                                    asp-action="Index" asp-route-ParentProductID=@ViewBag.ParentProduct.ProductID
+                                   asp-route-DetailID=@ViewBag.CurrentDetail.ProductDetailID
+                                    asp-route-ShoeSize=@item
+                                   class="SizeSelect">
+                                        <p style="font-weight: bolder; text-decoration: none" class="Label" for=@item>
+                                              @item                                         
+                                            </p>
+                                    </a>
+                            </div>
+                                }
+                         
+                            } else {
+                                    <div>
+                                       <s style="color: red">
+                                            <p style="font-weight: bolder; text-decoration: none" class="Label" for=@item>@item</p>
+                                        </s>
+                                    </div>
+                            }
+                        }
+                </div>
+            </div>
+        </div>
+            <hr>
+            @if(@ViewBag.Sale > 10)
+            {
+                    <h1><s style="color: darkred; font-size: 20px">@ViewBag.Sale</s><br />@ViewBag.CurrentDetail.ProductPrice Kč</h1>
+            } else {
+<h1>@ViewBag.CurrentDetail.ProductPrice Kč</h1>
+            }
+                
+                <input asp-for=ProductID value=@ViewBag.ParentProduct.ProductID hidden />
+                <input asp-for=VariantString value=@ViewBag.CurrentDetail.ProductDetailID hidden />
+                <input asp-for=VariantID value=@ViewBag.CurrentDetail.ProductDetailID hidden />
+                <input asp-for=Size value=@ViewBag.CurrentSize hidden />
+                <input asp-for=Price value=@ViewBag.CurrentDetail.ProductPrice hidden />
+                @if (ViewBag.AllowBuy == true)
+                {
+                    <button style="text-align: center; font-size: 25px; " type="submit" class="kart">
+                        <img src="~/img/cart.svg">Přidat do košíku
+                    </button>
+                }              
+            </form>
+        </div>    
+    </div>
+</div>  
+    <div class="Details" style="margin-top: 5%;">
+        <div>
+        <h1 style="    text-shadow: 1px 1px 1px black;">Informace o produktu</h1>
+            <p>@ViewBag.ParentProduct.Description  </p>
+        </div>
+        <aside>
+            <br><br><br><br>
+            <table class="params" cellspacing="0">
+                <thead>
+                <tr>
+                    <th colspan="2">Parametry Produktu</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Druh</td>
+                    <td>@ViewBag.ParentProduct.Type</td>
+                </tr>
+                <tr class="Gr">
+                    <td>Materiál</td>
+                    <td>@ViewBag.ParentProduct.ShoeMaterial</td>
+                </tr>
+                <tr>
+                    <td>Určení</td>
+                    <td>Chlapecké</td>
+                </tr>
+                <tr class="Gr">
+                    <td>Kod</td>
+                    <td>@ViewBag.ParentProduct.ProductCode</td>
+                </tr>
+                </tbody>
+            </table>
+        </aside>
+    </div>
+    <hr class="MainHR">
+    <h1>Mohlo by se<span> Vám líbit</span> </h1>
+    <div class="Offers">
+    @foreach (Product item in ViewBag.Products)
+    {
+        string URL = "empty";
+        <a href="/ProductDetail/Index/?ParentProductID=@item.ProductID" style="text-decoration:none">
+            <div>
+                @foreach (var dist in ViewBag.OtherImages)
+                {
+                    @if (item.ProductID == dist.ParentID)
+                    {
+                        URL = dist.ImgURL;
+                    }
+                    @if (URL == "empty")
+                    {
+                        URL = "/ShoeImages/Default.png";
+                    }
+                }
+                <img src=@URL>
+                @item.ShoeName<br>
+                @item.Manufacturer
+                @if (item.LowestPrice != 0)
+                {
+                    <div class="Price"> <label>@item.LowestPrice<s>@item.DefaultPrice</s></label>          <img src="img/cart.svg" class="sh"> </div>
+                }
+                else
+                {
+                    <div class="Price"> <label>@item.DefaultPrice Kč<br><s></s></label>            <img src="img/cart.svg" class="sh"> </div>
+                }
+            </div>
+        </a>
+    }
+    </div>
+    <br><br>    <hr class="MainHR"><br><br>
+    <div class="Bonus">
+        <div>
+            <a href="">
+            <img src="~/img/Group%20195.png">
+                VŠE MÁME SKLADEM
+            </a>
+        </div>
+        <div>
+            <a href="">
+                <img src="~/img/Group%20196.png">
+                DOPRAVA ZDARMA
+            </a>
+        </div>
+        <div>
+            <a href="">
+            <img src="~/img/Group%20293.png">
+                JAK MĚŘIT VELIKOSTI
+            </a>
+        </div>
+    </div>
+    <br><br><br><br><br>
+</div>
+<form   class="Newsletter" action="newsletter.php" method="get">
+    <h1>Nezmeškejte nové a výhodné akce</h1><br>
+    <p>Zadejte svůj mail</p><br>
+    <div>  <input type="email" required><button type="submit">přihlásit</button></div>
+    <br><br><br>
+</form>
+<footer>
+    <div class="Left">
+        <h2>O NÁS</h2><br><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad aperiam at blanditiis dolor dolorem eaque error id laudantium maxime praesentium, quas repellat rerum sed sunt veniam, voluptatem? Eveniet, nulla.</p>
+        <img src="img/Group%204.png">
+    </div>
+    <div>
+        <h4>NAŠE NABÍDKA</h4>
+        <div class="Cont">
+            <div>
+                <h3>Dívčí</h3>
+                <a href=""><li>Tenisky</li></a>
+                <a href=""><li>Tenisky</li></a>
+                <a href=""><li>Tenisky</li></a>      <a href=""><li>Tenisky</li></a>
+            </div>
+            <div>
+                <h3>Chlapecké</h3>
+                <a href=""><li>Tenisky</li></a>
+                <a href=""><li>Tenisky</li></a>
+                <a href=""><li>Tenisky</li></a>
+                <a href=""><li>Tenisky</li></a>
+            </div>
+        </div>
+    </div>
+    <div class="ContactUs">
+        <h4> KONTAKTUJTE NÁS</h4>
+        <BR>
+        <p><img src="~/img/6.png">info@nejlepsiboty.cz</p>
+        <p><img src="~/img/8.png"> +420 777 666 555</p>
+        <p class="Socials">
+            <a href="facebook.com"><img src="~/img/facebook.png"> </a>
+            <a href="instagram.com"><img src="~/img/Group%20153.png"> </a>
+            <a href="twitter.com"><img src="~/img/twitter.png">   </a>
+        </p>   <br><br>
+        <p>
+            Litvínosvká 600,Praha 9, 190 00
+        </p>
+    </div>
+</footer>

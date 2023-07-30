@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "_Admin";
+}
+    <br /><br /><br /><br />
+<div class="container bg-secondary">
+
+@foreach( WebsiteLog Log in ViewBag.Logs)
+{
+    <a>
+            <div class="row Hoverable">
+        <div class="col">@Log.Info</div>
+        <div class="col">@Log.Time</div>
+            </div>
+        </a>
+}
+
+</div>

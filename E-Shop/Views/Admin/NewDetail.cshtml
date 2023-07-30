@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "_Admin";
+}
+@model ProductDetail
+<h1>New Product Variant</h1>
+<div style="display: flex; flex-direction:row">
+    <form asp-controller="Admin" asp-action="UploadNewDetail" method="get" style="margin-top:10%; margin-bottom:10%; flex:1; ">
+        <input asp-for="ParentID" value=@ViewBag.ParentID  hidden/>
+        <div>
+            <div><label  class="text-center"></label>Color Code</div>
+            <div><input asp-for="ColorCode" type="color"  placeholder="Color" class="input-group-text" /></div>
+        </div>
+        <div>
+            <div><label class="text-center"></label>Product Price</div>
+            <div><input asp-for="ProductPrice"  placeholder="ProductPrice" class="input-group-text" /></div>
+        </div>
+        <div>
+            <div><label class="text-center"></label>Product Sizes(format: "41;42;43;44")</div>
+            <div><input asp-for="ProductSizes" placeholder="1;2;3;4;5" class="input-group-text" /></div>
+        </div>   
+        <div>
+            <div><label  class="text-center">Product Variant sale(If sale is selected, the price of item will be determined from default product price!)</label></div>
+            <div>
+            <select asp-for="ProductSale">
+                <option value=0>No Sale</option>
+                <option value=1>Half Price Down</option>
+                 <option value=2>1/3 Of Price</option>
+            </select>
+            </div>
+        </div>     
+        <br />
+            <button type="submit" class="btn btn-primary">Confirm</button>       
+    </form>
+
+</div>
+<hr />

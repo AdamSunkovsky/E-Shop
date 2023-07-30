@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "_Admin";
+}
+
+@model ImgURLs
+<div style="display: flex; flex-direction:row">
+    <hr />
+    <form asp-controller="Admin" asp-action="UploadImg" method="get" style="margin-top:10%; margin-bottom:5%; flex:1; ">      
+        <div>
+            <div><label class="text-center"></label>Main Image URL</div>
+            <div><input asp-for="main" value=@Model.main placeholder="" class="input-group-text" /></div>
+        </div>
+        <div>
+            <div><label class="text-center"></label>First Image URL</div>
+            <div><input asp-for="First" value=@Model.First placeholder="" class="input-group-text" /></div>
+        </div>
+        <div>
+            <div><label class="text-center"></label>Second Image URL</div>
+            <div><input asp-for="Second" value=@Model.Second placeholder="" class="input-group-text" /></div>
+        </div>
+           <div>
+            <div><label class="text-center"></label>Last Image URL</div>
+            <div><input asp-for="Third" value=@Model.Third placeholder="" class="input-group-text" /></div>
+        </div>
+        <input asp-for="OldM" value=@Model.main placeholder="" class="input-group-text"  hidden/>
+        <input asp-for="OldF" value=@Model.First placeholder="" class="input-group-text" hidden />
+        <input asp-for="OldS" value=@Model.Second placeholder="" class="input-group-text" hidden />
+        <input asp-for="OldT" value=@Model.Third placeholder="" class="input-group-text" hidden />
+        <input asp-for="Parent" value=@Model.Parent hidden />
+        <button type="submit" class="btn btn-primary">Confirm</button>
+    
+    </form>
+
+    <aside style="flex:1;margin-top:10%; margin-bottom:10%; display: flex; flex-direction: column">
+        <img src=@ViewBag.MainIMG style="flex: 3">
+        <br />
+        <br /><br /><br /><br />
+</div>

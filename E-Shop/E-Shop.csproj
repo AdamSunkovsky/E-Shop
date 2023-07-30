@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>E_Shop</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Admin\NewProduct.cshtml\**" />
+    <Content Remove="Views\Admin\NewProduct.cshtml\**" />
+    <EmbeddedResource Remove="Views\Admin\NewProduct.cshtml\**" />
+    <None Remove="Views\Admin\NewProduct.cshtml\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Controllers\HomeController.cs~RFf895d1.TMP" />
+    <None Remove="Controllers\HomeController.cs~RFfd4b43.TMP" />
+    <None Remove="Views\Admin\StockManagment.cshtml~RF9560c8.TMP" />
+    <None Remove="Views\Home\Index.cshtml~RF1423d97.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\StoreArticles\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="wwwroot\Defaults\" />
+  </ItemGroup>
+
+</Project>

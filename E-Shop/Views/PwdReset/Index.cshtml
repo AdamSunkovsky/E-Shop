@@ -1,0 +1,33 @@
+﻿@model Reset
+<hr />
+@if (ViewBag.Submited == false)
+ {
+<form asp-action="Index" style="margin-top:10%; margin-bottom:10%">
+    <div>
+        <div><label asp-for="Email" class="bg-dark"></label></div>
+        <div><input asp-for="Email" placeholder="Enter your email" class="form-control" /></div>
+    </div>
+     <div>
+        <button type="submit" class="btn btn-primary">Send Email</button>
+    </div>
+</form>
+ }
+@if (ViewBag.Submited == true)
+ {
+    <form asp-action="Mailed" style="margin-top:10%; margin-bottom:10%">
+        <div>
+            <div><label asp-for="RestoreCode" class="bg-dark">We have sent you a code for password reset</label></div>
+            <div><input asp-for="RestoreCode" placeholder="Enter code" class="form-control" /></div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Send Email</button>
+        </div>
+        @if(ViewBag.Failed == true)
+        {
+            <div>
+                <p class="alert-danger danger">Wrong Code!</p>
+            </div>
+        }
+    </form>
+   
+ }

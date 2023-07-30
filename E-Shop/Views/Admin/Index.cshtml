@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "_Admin";
+}
+    <br /><br /><br /><br />
+<div style="width: 100%; display: flex; flex-direction: row; gap: 5%;">
+    <div style="flex:1">
+        <div style="height: 500px; overflow-y: auto">
+             <table class="table">
+            <h1 class="card-title">Product Categories</h1>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Category</th>
+      <th scope="col">Subcategory</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (Category item in this.ViewBag.Cats)
+        {
+    <tr>
+      <th scope="row">@item.CategoryID</th>
+      <td>@item.PrimaryCat</td>
+      <td>@item.SecondaryCat</td>
+      <td>
+                                @if (item.CategoryID != 1)
+                                {
+                                                              <a href="/Admin/DeleteCategory?CategoryId=@item.CategoryID">                    
+                                                              <img style="max-width: 10px" src="/img/delete.png">
+                                                              </a>   
+                                }
+   
+      </td>
+    </tr>   
+        }
+  </tbody>
+</table>
+        </div>
+      
+@model Category
+<form asp-action="NewCategory"  class="form-control" >
+    <input asp-for="PrimaryCat"  required/>
+    <input  asp-for="SecondaryCat" required/>
+    <button type="submit" />ADD</button>
+</form>
+    </div>
+
+
+    <div style="flex:1">
+            
+    </div>
+
+
+
+
+</div>
+

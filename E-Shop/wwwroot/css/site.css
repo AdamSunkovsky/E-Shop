@@ -1,0 +1,987 @@
+html {
+    scroll-behavior: smooth;
+}
+*{
+    font-family: sans-serif
+}
+header {
+    background: #314069;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    align-content: center;
+    vertical-align: center;
+}
+.Offers a div:not(.Price, .Text) {
+    box-shadow: 10px 10px 10px gray;
+    border-radius: 5%;
+}
+.CatalogItem {
+    max-height: 300px;
+}
+a {
+    text-decoration: none;
+}
+.Price {
+    margin-top: auto;
+    bottom: 2px;
+}
+    header a {
+        display: inline;
+        text-decoration: none;
+    }
+
+    header div picture img {
+        height: 20px;
+    }
+    header a {
+        display: inline;
+        text-decoration: none;
+        color: white;
+    }
+    header button {
+        align-content: center;
+        background: none;
+        border: none;
+    }
+
+        header button:hover {
+            border: solid white 2px;
+            transition-duration: 2s;
+        }
+
+    header div {
+        padding-left: 5%;
+        flex: 2;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    header .Mid {
+        flex: 2;
+    }
+
+h1 {
+    font-size: 40px;
+}
+
+body {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+.Boy {
+    background: url("/img/01.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.Girl {
+    background: url("/img/02.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.Oth {
+    background: url("/img/03-01.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+main {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+    main .Header2 {
+        padding-top: 25px;
+        display: flex;
+        flex-direction: row;
+        vertical-align: middle;
+    }
+
+        main .Header2 div {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+        }
+
+        main .Header2 .Ic {
+            height: 25px;
+        }
+
+        main .Header2 .Midd {
+            flex: 1;
+        }
+
+        main .Header2 form input {
+            background: none;
+            border: lightgray 0.1px solid;
+            background: url("/img/loupe.png") no-repeat scroll 5px 5px;
+            padding-left: 30px;
+            background-size: 20px;
+            color: gray;
+        }
+
+            main .Header2 form input:placeholder-shown {
+                opacity: 50%;
+            }
+
+.Sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    height: 40px;
+}
+
+    .Sections div {
+        border: 0.5px gray solid;
+        color: gray;
+        text-align: center;
+        vertical-align: middle;
+        transition-duration: 1s;
+    }
+
+    .Sections a {
+        color: gray;
+        text-decoration: none;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+.Inputs input {
+    width: 15%;
+}
+
+.Sections div:hover a {
+    text-decoration: none;
+    color: #c7232e;
+}
+
+.Sections div:hover {
+    border: #c72230 1px solid;
+}
+
+.TripChoice {
+    flex: 5;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 150px;
+    width: 100%;
+    gap: 3%;
+}
+
+    .TripChoice a {
+        text-align: center;
+        text-decoration: none;
+        max-height: 100%;
+    }
+
+    .TripChoice a {
+        text-decoration: none;
+    }
+
+    .TripChoice img {
+        width: 100%;
+    }
+
+    .TripChoice div:hover div {
+        text-decoration: underline;
+    }
+
+h1 {
+    align-self: center;
+    color: #c7232e;
+    font-size: 200%;
+}
+
+    h1 span {
+        font-size: 30px;
+        color: #314069;
+    }
+
+.Price {
+    display: flex;
+    flex-direction: row;
+}
+
+.Offers div:not(.Price, .Text) {
+    display: flex;
+    flex-direction: column;
+    color: gray;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.16);
+}
+
+.Newsletter div input {
+    background: none;
+    border: lightgray 0.1px solid;
+    background: url("/img/loupe.png") no-repeat scroll 5px 5px;
+    padding-left: 30px;
+    background-size: 20px;
+    color: gray;
+}
+
+.Offers div img {
+    width: 100%;
+}
+
+.Offers div label {
+    color: black;
+}
+.Offers div:hover:not(.Price, .Text) {
+ border: none; 
+}
+
+.Offers div:not(.Price) .sh {
+    display: none;
+}
+
+.Offers s {
+    color: red;
+}
+.Text {
+    margin-top: 5%;
+}
+.Center {
+    width: 25%;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.MainForm {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: 650px;
+    gap: 5%;
+}
+
+.Hide {
+    flex: 1;
+}
+
+.Navigation p {
+    color: #c72230;
+}
+
+.Navigation a {
+    color: #314069;
+}
+
+.Form {
+    align-content: center;
+}
+
+.MainForm aside {
+    background-image: url("img/KiddoOnTheGround.jpg");
+    background-repeat: no-repeat;
+}
+
+.MainForm .Form h2 {
+    align-content: center;
+    margin-left: 10%;
+    font-size: 45px;
+}
+
+.Name {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+.Form div input {
+    font-size: 35px;
+    color: gray;
+}
+
+.Name input {
+    flex: 1;
+}
+
+.Form label, input {
+    color: black;
+    display: block;
+}
+
+.Form p {
+    padding-left: 10%;
+    color: #314069;
+}
+
+.Form div:not(.Name) {
+    width: 100%;
+}
+
+    .Form div:not(.Name) input, .Dropdown {
+        width: 100%;
+    }
+
+        .Dropdown option {
+            color: gray;
+        }
+
+.Payment {
+    width: 100%;
+    display: flex;
+}
+
+    .Payment div {
+        flex: 1;
+        display: inline-block;
+    }
+
+.Form p {
+    color: black;
+}
+
+.Inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.Pd {
+    margin-right: 50%;
+    background: none;
+    color: black;
+    border: #c72230 1px solid;
+}
+
+    .Pd:hover, .LD:hover {
+        background: #c72230;
+        color: white;
+    }
+
+.LD {
+    width: 25%;
+    background: none;
+    color: black;
+    border: #c72230 1px solid;
+}
+
+footer {
+    width: 100%;
+    background-color: #c7232e;
+    font-weight: lighter;
+}
+
+.ContactUs {
+    background-color: #314069;
+}
+.Sideshow {
+    width: 100%;
+    background-image: url("/img/Botisky.png");
+    background-size: 100%;
+    height: 600px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10fr 1fr;
+    background-repeat: no-repeat;
+}
+.Newsletter {
+    align-content: center;
+    background-image: url("/img/NewsletterBG.png");
+    width: 100%;
+    background-size: 100%;
+    text-align: center;
+    align-content: center;
+    background-repeat: no-repeat;
+}
+.Form * {
+    color: #314069;
+}
+
+.Bonus {
+    padding-left: 10%;
+    width: 90%;
+    align-content: center;
+}
+
+
+@media (min-width: 799px) {
+
+    .MainForm aside {
+        background-image: url("img/KiddoOnTheGround.png");
+        background-size: auto;
+        background-repeat: no-repeat;
+    }
+
+
+    .Mc {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .Pages {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .Inputs {
+        align-content: center;
+        vertical-align: middle;
+        margin: auto;
+    }
+
+    .Sideshow button {
+        border: none;
+        background-color: #c7232e;
+        height: 10%;
+    }
+
+        .Sideshow button:hover {
+            background-color: red;
+        }
+
+    .Sideshow aside p {
+        align-self: center;
+        color: #c7232e;
+        font-size: 25px;
+    }
+
+    .Sideshow aside h1 {
+        color: #314069;
+        font-size: 40px;
+    }
+
+    
+    .Offers {
+        padding-left: 5%;
+        padding-right: 5%;
+        position: relative;
+     
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 2%;
+    }
+
+    .More {
+        background-color: #c7232e;
+        border: none;
+        text-decoration: none;
+        font-size: 25px;
+        color: white;
+    }
+        .More:hover {
+            background-color: #c7232e;
+            color: pink;
+        }
+
+    .Bonus {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+        .Bonus div {
+            flex: 1;
+            align-content: center;
+            align-items: center;
+        }
+
+            .Bonus div a {
+                color: #314069;
+                vertical-align: middle;
+                align-self: center;
+                text-decoration: none;
+                align-self: baseline;
+            }
+
+                .Bonus div a:hover {
+                    color: #c7232e;
+                }
+
+                    .Bonus div a:hover img {
+                        background-color: #c7232e;
+                    }
+
+                .Bonus div a img {
+                    border-radius: 50%;
+                    background-color: #314069;
+                    width: 10%;
+                    vertical-align: middle;
+                    background-size: 150%;
+                }
+
+    .Newsletter h1 {
+        padding-top: 5%;
+        width: 50%;
+        margin: auto;
+    }
+
+    .Newsletter div {
+        padding-top: 1%;
+        padding-bottom: 5%;
+        height: 25%;
+    }
+
+        .Newsletter div input {
+            height: 100%;
+        }
+
+        .Newsletter div button {
+            background-color: #c72230;
+            border: none;
+        }
+
+    .Newsletter p {
+        color: gray;
+    }
+
+    .Newsletter div button:hover {
+        background-color: #314069;
+        transition-duration: 0.5s;
+    }
+
+    footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .Cont {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    h1 {
+        color: #c7232e;
+        font-size: 40px;
+    }
+
+    .Left {
+        padding-left: 50px;
+    }
+
+    footer div {
+        padding: 5%;
+    }
+
+        footer div li {
+            font-size: 60%;
+        }
+
+        footer div h3 {
+            font-size: 90%;
+        }
+
+    .Socials a:hover {
+        padding-left: 1%;
+        padding-right: 1%;
+        text-decoration: none;
+        transition-duration: 1s;
+    }
+
+    .Socials a {
+        text-decoration: none;
+    }
+}
+
+.mail {
+    align-self: center;
+    margin: auto;
+}
+
+.hh {
+    align-self: center;
+    color: #c7232e;
+    font-size: 200%;
+}
+
+
+.Catalog {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2%;
+}
+
+    .Catalog aside {
+        flex: 1;
+        border-radius: 5%;
+
+    }
+
+    .Catalog div {
+        flex: 5;
+    }
+
+
+
+
+.Product aside {
+    display: flex;
+    flex-direction: column;
+}
+
+.Product div p {
+    color: gray;
+}
+
+.MainImg {
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    flex: 5;
+    max-height: 50%;
+    align-content: center;
+}
+
+.Product h1 {
+    color: #314069;
+    line-height: 50%;
+}
+
+.MainImg img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.OtherImgs {
+    margin-right: auto;
+    margin-left: auto;
+    align-self: center;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: 1%;
+    max-height: 20%;
+}
+
+.Opt {
+    display: flex;
+    flex-direction: row;
+}
+
+    .Opt div {
+        flex: 1;
+    }
+
+.Size {
+    display: flex;
+    flex-direction: column;
+}
+
+.OtherImgs img {
+    max-width: 95%;
+    border: none;
+   
+}
+
+    .OtherImgs img:hover {
+        box-shadow: 2px 2px 2px 2px gray;
+    }
+
+.left {
+    margin-left: 10%;
+}
+
+s {
+    color: gray;
+    line-height: 1px;
+}
+
+h2 {
+    line-height: 1px;
+    color: #c72230;
+    display: inline-flex;
+}
+.SizeSelect:hover {
+    text-decoration: underline;
+}
+
+.kart {
+    display: inline-flex;
+    float: right;
+    background: #c7232f;
+    color: white;
+    border: none;
+    line-height: 150%;
+    padding: 15px;
+    box-shadow: 2px 2px 2px gray;
+}
+
+    .kart:hover {
+        background: rgba(199, 34, 48, 0.74);
+    }
+
+.Details {
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
+
+.params tr, td {
+    color: #314069;
+}
+
+.params th {
+    color: white;
+    height: 50px;
+}
+
+.Details div {
+    flex: 6;
+}
+
+.Details aside {
+    flex: 2;
+}
+
+.Details div h1 {
+    color: #314069;
+}
+
+.params {
+    width: 100%;
+    background: white;
+}
+
+    .params thead {
+        background-color: #314069;
+    }
+
+    .params td {
+        height: 40px;
+    }
+
+.Gr {
+    background-color: #d6d9e2;
+}
+
+.Details div p {
+    color: gray;
+}
+
+.h3 {
+    color: #314069;
+}
+
+.Newsletter div input {
+    background: none;
+    border: lightgray 0.1px solid;
+    background: url("/img/loupe.png") no-repeat scroll 5px 5px;
+    padding-left: 30px;
+    background-size: 20px;
+    color: gray;
+}
+
+.Sc {
+    display: flex;
+    flex-direction: row;
+}
+
+    .Sc div label {
+        color: #314069;
+    }
+
+.SizeI {
+    display: none;
+}
+
+.Label {
+    color: #314069;
+}
+
+.SizeI:checked + .Label {
+    color: #c7232e;
+}
+
+.Product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+    .Product aside {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Product div p {
+        color: gray;
+    }
+
+.MainImg {
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    flex: 5;
+    max-height: 50%;
+    align-content: center;
+}
+
+.Product h1 {
+    color: #314069;
+    line-height: 50%;
+}
+
+.MainImg img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.OtherImgs {
+    margin-right: auto;
+    margin-left: auto;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1%;
+    max-height: 20%;
+}
+
+.Opt {
+    display: flex;
+    flex-direction: row;
+}
+
+    .Opt div {
+        flex: 1;
+    }
+
+.Size {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+    .OtherImgs img:hover {
+        background: #c72230;
+    }
+
+.left {
+    margin-left: 10%;
+}
+
+s {
+    color: gray;
+    line-height: 1px;
+}
+
+h2 {
+    line-height: 1px;
+    color: #c72230;
+    display: inline-flex;
+}
+
+.kart {
+    display: inline-flex;
+    float: right;
+    background: #c7232f;
+    color: white;
+    border: none;
+    line-height: 150%;
+}
+
+    .kart:hover {
+        background: rgba(199, 34, 48, 0.74);
+    }
+
+.Details {
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
+
+.params tr, td {
+    color: #314069;
+}
+
+.params th {
+    color: white;
+    height: 50px;
+}
+
+.Details div {
+    flex: 6;
+}
+
+.Details aside {
+    flex: 2;
+}
+
+.Details div h1 {
+    color: #314069;
+}
+
+.params {
+    width: 100%;
+    background: white;
+}
+
+    .params thead {
+        background-color: #314069;
+    }
+
+    .params td {
+        height: 40px;
+    }
+
+.Gr {
+    background-color: #d6d9e2;
+}
+
+.Details div p {
+    color: gray;
+}
+
+.h3 {
+    color: #314069;
+}
+
+.Newsletter div input {
+    background: none;
+    border: lightgray 0.1px solid;
+    background: url("/img/loupe.png") no-repeat scroll 5px 5px;
+    padding-left: 30px;
+    background-size: 20px;
+    color: gray;
+}
+
+.Sc {
+    display: flex;
+    flex-direction: row;
+}
+
+    .Sc div label {
+        color: #314069;
+    }
+
+.SizeI {
+    display: none;
+}
+
+.Label {
+    color: #314069;
+}
+
+.SizeI:checked + .Label {
+    color: #c7232e;
+}
+
+.Product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.ColorSelect {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}

@@ -1,0 +1,112 @@
+﻿<div class="Header2">
+    <a asp-area="" asp-controller="Home" asp-action="Index">
+        <div>
+
+            <img src="img/Group%204.png">
+
+        </div>
+    </a>
+    <div class="Midd"></div>
+    <div class="Form">
+        <a asp-action="Index" asp-controller="Catalog"><img class="Ic" src="img/loupe.svg"></a>
+        <a asp-action="Index" asp-controller="Basket"><img class="Ic" src="img/cart.svg"></a>
+        <a href=""> <img class="Ic" src="img/heart.png">  </a>
+    </div>
+</div>
+
+@model BasketModel
+<section class="h-100 h-custom">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="h5">Product</th>
+                <th scope="col">Size</th>
+                <th scope="col">Price</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+
+@foreach(ProductInBasket Item in Model.Products)
+{
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center">
+                                            <img src=@Item.ImgURL class="img-fluid rounded-3"
+                                             style="width: 120px;" alt="Book">
+                                            <div class="flex-column ms-4">
+                                                <p class="mb-2">@Item.ProductName</p> 
+                                               
+                                                <div style="width: 25px; height: 10px; background-color: @Item.VariantString">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <td class="align-middle">
+                                        <p class="mb-0" style="font-weight: 500;">@Item.Size</p>
+                                    </td>                          
+                                    <td class="align-middle">
+                                        <p class="mb-0" style="font-weight: 500;">@Item.Price Kč</p>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a asp-action="RemoveFromBasket" asp-route-ID=@Item.ProductID asp-route-CHILDID=@Item.ChildStockID class="mb-0" style="font-weight: 500; text-decoration:none; color:red">X</a>
+                                    </td>
+                                </tr>
+                            }
+                  
+            </tbody>
+          </table>
+        </div>
+                        @if(ViewBag.Empty == true)
+                {
+                    <img style="margin-left :30%; width: 50%;" src="~/Defaults/Sadcart.png" />
+                    <h2 style="margin-left: 40%">Váš košík je prázdný :(</h2>
+               
+                }
+                  @if(ViewBag.Empty == false)
+                            {
+        <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
+          <div class="card-body p-4">
+              <div class="col-lg-4 col-xl-3">
+                <div class="d-flex justify-content-between" style="font-weight: 500;">
+                  <p class="mb-2">Celkem(bez DPH)</p>
+                                <p class="mb-2"><strong>@Model.PriceNoDPH Kč</strong></p>
+                </div>
+                <hr class="my-4">
+                <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+                  <p class="mb-2">DPH</p>
+                  <p class="mb-2">@Model.DPH Kč</p>
+                </div>
+                            <hr class="my-4">
+                            <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+                                <p class="mb-2">Total (tax included)</p>
+                                <p class="mb-2">@Model.TotalPrice Kč</p>
+                            </div>
+
+                        
+                                <button type="button" class="btn btn-primary btn-block btn-lg">
+                                    <div class="d-flex justify-content-between">
+                                        <a asp-action="Checkout" style="text-decoration: none; color: white">
+                                            <span>Přejít na platbu</span>
+                                        </a>
+                                    </div>
+                                </button>
+                            
+            
+
+              </div>
+            </div>
+                    </div>
+                }
+        </div>
+            
+      </div>
+    </div>
+  </div>
+</section>

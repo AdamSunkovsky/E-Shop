@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "_Admin";
+}
+@model Product
+<div style="display: flex; flex-direction:row">
+    <hr />
+    <form asp-controller="Admin" asp-action="Upload" method="get" style="margin-top:10%; margin-bottom:5%; flex:1; ">
+        <input asp-for="ProductID" value=@Model.ProductID readonly style="border:none" />
+        <div>
+            <div><label  class="text-center">Product Categories</label></div>
+            <div>
+            <select asp-for="Categories">
+                @foreach (Category item in ViewBag.Categories)
+                    {
+                        <option value=@item.CategoryID>@item.PrimaryCat > @item.SecondaryCat</option>
+                    }          
+            </select>
+            </div>
+        </div>    
+        <div>
+            <div><label class="text-center"></label>Name</div>
+            <div><input asp-for="ShoeName" value=@Model.ShoeName placeholder="ShoeName" class="input-group-text" /></div>
+        </div>
+        <div>
+            <div><label class="text-center"></label>Manufacturer</div>
+            <div><input asp-for="Manufacturer" value=@Model.Manufacturer placeholder="Manufacturer" class="input-group-text" /></div>
+        </div>
+        <div>
+            <div><label class="text-center">Desc</label></div>
+            <div><input asp-for="Description" value=@Model.Description placeholder="Description" class="input-group-text" /></div>
+        </div>
+        <div>
+            <div><label class="text-center">Default Price(Price that will be shown in catalog)</label></div>
+            <div><input asp-for="DefaultPrice" value=@Model.DefaultPrice placeholder="DefaultPrice" class="input-group-text" /></div>
+        </div>
+        <div>
+            <div><label class="text-center">Product Type</label></div>
+            <div><input asp-for="Type" value=@Model.Type placeholder="Product Type" class="input-group-text" /></div>
+        </div>
+        <div>
+            <div><label class="text-center">Prdct Code</label></div>
+            <div><input asp-for="ProductCode" value=@Model.ProductCode placeholder="ProductCode" class="input-group-text" /></div>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Confirm</button>
+        <a href="/Admin/DeleteProduct?ID=@Model.ProductID" style="max-width: 25px">
+            <img src="/img/delete.png" style="max-width: 25px" />
+        </a>
+    </form>
+
+    <aside style="flex:1;margin-top:10%; margin-bottom:10%; display: flex; flex-direction: column;     box-shadow: 2px 2px 2px 2px grey;">
+        <img src=@ViewBag.MainIMG style="flex: 3">
+        <br />
+      <a style="text-decoration: none;" asp-action="ImgEdit" asp-controller="Admin" asp-route-ID=@Model.ProductID><h4>Edit Images</h4></a>
+        <br /><br /><br /><br />
+</div>
+<div>
+    <h2>Total Stock: @ViewBag.Total</h2>
+    <a style="background-color: black; color: white" asp-action="WarehouseControl" asp-controller="Admin" asp-route-Parent=@Model.ProductID>Manage Stock</a>
+    </div>
+    <br /><br /><br />
+    <a href="/Admin/NewDetail?ParentID=@Model.ProductID" style="text-decoration:none; flex: 1">
+<h1>NEW Variant</h1>
+</a>
+<div 
+    style="  display: grid;
+    grid-template-columns: 1fr  1fr 1fr;"
+>
+    @foreach (ProductDetail Detail in ViewBag.Details)
+    {
+                    <a class="A-def" style="text-decoration: none; color:white;" href="/Admin/EditDetail?ID=@Detail.ProductDetailID">
+                        <div style="background: @Detail.ColorCode; border: 1px solid black; padding-bottom: 5%; align-content: center">
+                            <h1 class="h1" style="color: @Detail.ColorCode; filter: invert()">Variant @Detail.ColorCode (@Detail.ProductDetailID)</h1>
+                            <p style="color: @Detail.ColorCode; filter: invert()">Sizes: @Detail.ProductSizes</p>
+                        </div>
+                    </a>
+    }
+</div>
+    </aside>
+
+</div>
+
+<hr />

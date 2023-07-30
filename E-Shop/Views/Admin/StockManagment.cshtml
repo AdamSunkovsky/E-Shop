@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "_Admin";
+}
+@model FilterModel
+<br />
+<br />
+<br />
+<form>
+    <input asp-for="Search" class="InputSrch" placeholder="Keyword search" value="@Model.Search" autocomplete="off" />
+</form>
+<br />
+<div style="width: 100%; display: flex">
+    <a  href="/Admin/NewProduct" style="text-decoration:none; flex: 1">
+        <div>
+            <h1> New Product</h1>
+        </div>
+    </a>
+ 
+</div>
+
+
+<div style="width:100%; display: flex; flex-direction: column; gap: 5%">
+
+   
+      @foreach(Product Botiska in ViewBag.Products)
+      {
+      
+    <a href="/Admin/Editor?Ed=@Botiska.ProductID" class="TableCSTM">
+       
+        <div> 
+                <div>
+                    @Botiska.ProductID
+                    </div>            
+                    <div>@Botiska.ShoeName</div>
+                       <div>@Botiska.Manufacturer</div><div>@Botiska.ProductCode</div>
+              </div>
+       </a>
+          }
+</div>
+
+

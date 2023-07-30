@@ -1,0 +1,31 @@
+﻿@{
+       ViewData["Title"] = "Cancel";
+}
+@model EmailModel
+<div class="d-flex align-items-center justify-content-center vh-100">
+    <div class="text-center">
+        <h1 class="display-1 fw-bold">Canceling Order</h1>
+        <p class="fs-3"> <span class="text-danger">Chystáte se zrušit objednávku @ViewBag.Order.OrderID</span></p>
+        <p class="lead">
+            Objevnáka ze dne @ViewBag.Order.OrderTime
+        </p>
+        <form asp-action="DeleteOrder">
+            <div>
+                <div><label asp-for="To" class="bg-secondary text-center"></label></div>
+                <div><input asp-for="To" value="@ViewBag.Email.To" type="email" class="form-control" /></div>
+            </div>
+            <div>
+                <div><label asp-for="Subject" class="bg-secondary text-center">Subject</label></div>
+                <div><input asp-for="Subject" type="text" class="form-control" /></div>
+            </div>
+              <div>
+                <div><label asp-for="Body" class="bg-secondary text-center">Další info</label></div>
+                <div><input asp-for="Body" type="text" class="form-control" /></div>
+            </div>
+            <input asp-for=ID value=@ViewBag.Order.OrderID hidden />
+            <button class="btn-danger" type="submit">
+                Zrušit
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model Login
+<form asp-action="Index" style="margin-top:10%; margin-bottom:10%">
+    <div>
+        <div><label asp-for="Username" class="bg-secondary text-center"></label></div>
+        <div><input asp-for="Username" placeholder="Enter your username" class="form-control" /></div>
+    </div>
+    <div>
+        <div><label asp-for="Password" class="bg-secondary text-center"></label></div>
+        <div><input asp-for="Password" placeholder="Enter your password"  class="form-control" type="password" /></div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Log In!</button>
+    </div>
+    @if (ViewBag.FalseLogin == false)
+    {
+        <p class="text-center" style="color: red">Login Failed</p>
+        <br/>
+        <br/>      
+    }
+    <div class="align-content-center" style="width: 100%">
+        <br /><br />
+        <a class="text-center align-self-xl-center bg-gradient" asp-area="" asp-controller="PwdReset" asp-action="Index">
+            Forgot your password?
+        </a>
+
+    </div>
+   
+</form>

@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "_Admin";
+}
+@model Product
+<h1>New Product</h1>
+<div style="display: flex; flex-direction:row">
+    <form asp-controller="Admin" asp-action="UploadNewProduct" method="get" style="margin-top:10%; margin-bottom:10%; flex:1; ">
+        <div>
+            <div><label class="text-center"></label>Name</div>
+            <div><input asp-for="ShoeName" placeholder="ShoeName" class="input-group-text" required /></div>
+        </div>
+        <div>
+            <div><label class="text-center"></label>Manufacturer</div>
+            <div><input asp-for="Manufacturer" placeholder="Manufacturer" class="input-group-text" required /></div>
+        </div>
+        <div>
+            <div><label class="text-center">Desc</label></div>
+            <div><input asp-for="Description" placeholder="Description" class="input-group-text" required /></div>
+        </div>
+        <div>
+            <div><label class="text-center">Default Price</label></div>
+            <div><input asp-for="DefaultPrice" placeholder="DefaultPrice" class="input-group-text" required /></div>
+        </div>
+        <div>
+            <div><label class="text-center">Product Code</label></div>
+            <div><input asp-for="ProductCode" placeholder="Product Code" class="input-group-text" required /></div>
+        </div>
+        <div>
+            <div><label class="text-center">Product Material</label></div>
+            <div><input asp-for="ShoeMaterial"  placeholder="Material" class="input-group-text"  required /></div>
+        </div>
+        <div>
+            <div><label class="text-center">Product Type</label></div>
+            <div><input asp-for="Type" placeholder="Type" class="input-group-text" required /></div>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Create NEW</button>
+    </form>
+    <aside style="flex:1;margin-top:10%; margin-bottom:10%; display: flex;">
+       
+
+    </aside>
+</div>
+<hr />

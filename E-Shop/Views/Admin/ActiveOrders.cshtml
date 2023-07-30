@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "_Admin";
+}
+<div style="margin-top: 10%;display: flex; flex-direction: row; width:100%">
+    <div style="flex:1">ID</div>
+    <div style="flex:1">Jméno</div>
+    <div style="flex:1">Příjmení</div>
+    <div style="flex:1">Adresa</div>
+    <div style="flex:1">Platba</div>
+    <div style="flex:1">Status objednávky</div>
+    <div style="flex:1">Datum objednávky</div>
+    <div style="flex:1">Informace</div>
+    <div style="flex:1">Zrušení</div>
+</div>
+<div>
+@foreach (Order O in ViewBag.Orders)
+{
+    
+        <div class="Hoverable" style="display: flex; flex-direction: row">
+            <div style="flex:1">@O.OrderID</div>
+            <div style="flex:1">@O.CName</div>
+            <div style="flex:1">@O.CSurname</div>
+            <div style="flex:1">@O.CAdress</div>
+            <div style="flex:1">@O.Payment</div>
+            <div style="flex:1">@O.OrderStatus</div>
+            <div style="flex:1">@O.OrderTime</div>
+            <div style="flex:1">@O.Basket</div>
+            <div style="flex:1"><a asp-action="CancelOrder" asp-route-ID="@O.OrderID" style="color: red">X</a></div>
+        </div>
+}  
+</div>
+

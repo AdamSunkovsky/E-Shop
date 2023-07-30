@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - E_Shop</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Admin.css" />
+</head>
+<body>
+
+        <header>
+
+            <div>
+            <a asp-area="" asp-controller="Home" asp-action="Index" style="text-decoration: none;"class="DefaultA">
+                Home Page
+            </a>
+                
+            </div>
+            <div class="Mid">
+                @if (ViewBag.Authenticated)
+                {
+                    <a asp-area="" asp-controller="Admin" asp-action="Index">
+                        <span class="Hide DefaultA">Admin Page</span>
+                    </a>
+                }
+            </div>
+            <div>
+                <button onclick="">
+                    <picture>
+                    <img src="~/img/profile-user.png">
+                    </picture>
+                    @if (ViewBag.Authenticated)
+                    {
+                    <a asp-area="" asp-controller="Login" asp-action="Logout" class="DefaultA">
+                            <span class="Hide">Už nechci být admin</span>
+                        </a>
+                    }
+                    else
+                    {
+                    <a asp-area="" asp-controller="Login" asp-action="Index">
+                            <span class="Hide DefaultA">Přihlásit se</span>
+                        </a>
+                    }
+                   
+                </button>
+            </div>
+
+        </header>
+    <div class="MainPage">
+        <div class="Sections" style="margin-top:10%">
+                <a class="DefaultA" asp-area="" asp-controller="Admin" asp-action="Index">
+                <div> Informations</div>
+                </a>
+                 <a class="DefaultA" asp-area="" asp-controller="Admin" asp-action="ActiveOrders">
+                <div> Active Orders</div>
+                </a>
+                <a class="DefaultA"  asp-area="" asp-controller="Admin" asp-action="WarehouseControl">
+                <div> Warehouse control</div>
+                </a>   
+                <a class="DefaultA" asp-area="" asp-controller="Admin" asp-action="StockManagment">
+                <div> Product Managment</div>
+                </a>         
+                <a class="DefaultA" asp-area="" asp-controller="Admin" asp-action="LogHistory">
+                <div> LogHistory</div>
+                </a>         
+        </div>
+        <aside class="Content">
+            @RenderBody()
+        </aside>
+    </div>
+  
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

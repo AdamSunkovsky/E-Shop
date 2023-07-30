@@ -1,0 +1,201 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model FilterModel
+<body>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<main>
+        <div class="Header2">
+            <a asp-area="" asp-controller="Home" asp-action="Index">
+                <div>
+
+                    <img src="img/Group%204.png">
+
+                </div>
+            </a>
+            <div class="Midd"></div>
+            <div class="Form">
+                <form asp-controller="Catalog" asp-action="Index">
+                    <input asp-for="Search" type="text" placeholder="Vyhledat zboží nebo značku..." autocomplete="off">
+                </form>
+                <a asp-action="Index" asp-controller="Basket"><img class="Ic" src="img/cart.svg"></a>
+                <a href=""> <img class="Ic" src="img/heart.png">  </a>
+            </div>
+        </div>
+        <div class="Sections" style="margin-top:10%">
+        <div>
+            <a href=""> Chlapecké  <img src="img/Group 169.png"></a>
+        </div>
+        <div>
+            <a href="">Dívčí   <img src="img/Group 171.png"></a>
+        </div>
+        <div>
+            <a href="">Doplňky</a>
+        </div>
+        <div>
+            <a href="">Ostatní</a>
+        </div>
+        <div class="Hide">
+            <a href="#Contact">Kontakt </a>
+        </div>
+
+    </div>
+    <br>
+    <div class="Sideshow">
+        <div class="Mc">
+            <div>
+            </div>
+            <aside>
+                <br><br><br>
+                <p>NOVÁ DÍVČÍ KOLEKCE<BR>ŠETRNÁ K DETSKÝM NOHÁM</p>
+                <h1>
+                    NEJEN DO MĚSTA, <br>ALE I DO PŘÍRODY
+                </h1>
+                 <a asp-area="" asp-controller="Catalog" asp-action="Index" class="More btn-outline-primary">
+                <button style="color: white;" type="submit">Zobrazit produkty</button>
+                </a>
+            </aside>
+        </div>
+      
+    </div><br>
+
+    <div class="TripChoice">
+        <a href="">
+            <div class="Boy" style="color: darkblue;">
+                <br>     <br>     <br>
+                KLUČIČÍ BOTY
+                <br>     <br>     <br>
+            </div>
+        </a>
+        <a href="">
+                <div class="Girl" style="color: indianred;">
+                <br>     <br>     <br>
+                DÍVČÍ BOTY
+                <br>     <br>     <br>
+            </div>
+        </a>
+        <a href="">
+                <div class="Oth" style="color: black;">
+                <br>     <br>     <br>
+                JAK SPRÁVNĚ VYBRAT?
+                <br>     <br>     <br>
+            </div>
+        </a>
+
+    </div>
+    </div>
+    <br><br><br><br>
+        <div class="text-center"> <h1> Nejnovější kousky <span>v naší nabídce</span></h1></div>
+   
+    <div class="Offers">
+           
+            @foreach (Product item in ViewBag.Products)
+            {
+                string URL = "";
+
+                <a href="/ProductDetail/Index?ParentProductID=@item.ProductID" style="text-decoration:none">
+                    <div>
+                        @foreach (var dist in ViewBag.Images)
+                        {
+                            @if (item.ProductID == dist.ParentID)
+                            {
+                                URL = dist.ImgURL;
+                            }
+                        }
+                        <img src=@URL>
+                        @item.ShoeName<br>
+                        @item.Manufacturer
+                        @if (item.LowestPrice != 0)
+                        {
+                            <div class="Price"> <label>@item.LowestPrice<s>@item.DefaultPrice</s></label>            <img src="img/cart.svg" class="sh"> </div>
+                        }
+                        else
+                        {
+                            <div class="Price"> <label>@item.DefaultPrice<s></s></label>            <img src="img/cart.svg" class="sh"> </div>
+                        }
+                    </div>
+                </a>
+            }
+
+    </div>
+    <div class="Center">
+        <br><br>
+            <a asp-area="" asp-controller="Catalog" asp-action="Index" class="More btn-outline-primary">
+            <br>Zobrazit Celou nabídku<br>
+        </a>
+    </div><br><br><br>
+    <div class="Bonus">
+        <div>
+            <a href="">
+                <img src="img/Group%20195.png">
+                VŠE MÁME SKLADEM
+            </a>
+        </div>
+        <div>
+            <a href="">
+                <img src="img/Group%20196.png">
+                DOPRAVA ZDARMA
+            </a>
+        </div>
+        <div>
+            <a href="">
+                <img src="img/Group%20293.png">
+
+                JAK MĚŘIT VELIKOSTI
+            </a>
+        </div>
+    </div>
+    <br><br><br><br><br>
+
+</main>
+<div class="Newsletter">
+    <h1>Nezmeškejte nové a výhodné akce</h1><br>
+    <p>Zadejte svůj mail</p><br>
+    <div>  <input type="email" name="em">
+        <button type="submit">přihlásit</button></div>
+    <br><br><br>
+</div>
+    <footer id="Contact">
+    <div class="Left">
+        <h2>O NÁS</h2><br><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad aperiam 
+            at blanditiis dolor dolorem eaque error id laudantium maxime praesentium, quas repellat rerum sed sunt veniam, voluptatem? Eveniet, nulla.</p>
+        <img src="img/Group%204.png">
+    </div>
+    <div>
+        <h4>NAŠE NABÍDKA</h4>
+        <div class="Cont">
+            <div>
+                <h3>Dívčí</h3>
+                <a href=""><li>Tenisky</li></a>
+                <a href=""><li>Tenisky</li></a>
+                <a href=""><li>Tenisky</li></a>      <a href=""><li>Tenisky</li></a>
+            </div>
+            <div>
+                <h3>Chlapecké</h3>
+                <a href=""><li>Tenisky</li></a>
+                <a href=""><li>Tenisky</li></a>
+                <a href=""><li>Tenisky</li></a>
+                <a href=""><li>Tenisky</li></a>
+            </div>
+        </div>
+    </div>
+    <div class="ContactUs">
+        <h4> KONTAKTUJTE NÁS</h4>
+        <BR>
+        <p><img src="img/6.png">info@nejlepsiboty.cz</p>
+        <p><img src="img/8.png"> +420 777 666 555</p>
+        <p class="Socials">
+            <a href="facebook.com"><img src="img/facebook.png"> </a>
+            <a href="instagram.com"><img src="img/Group%20153.png"> </a>
+            <a href="twitter.com"><img src="img/twitter.png">   </a>
+
+        </p>   <br><br>
+        <p>
+            Litvínosvká 600,Praha 9, 190 00
+        </p>
+    </div>
+</footer>
+</body>
+</html>
+
